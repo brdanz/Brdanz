@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>BXF TOLS SHOP</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/glass.css">
+<link rel="stylesheet" href="css/robot.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="app-mode">
+
+<div class="bg-grid"></div>
+<div class="bg-glow glow-1"></div>
+<div class="bg-glow glow-2"></div>
+
+<!-- BANNER HEADER -->
+<div class="banner-app">
+   <img src="https://files.catbox.moe/88tpbi.png" alt="BXF Banner">
+</div>
+
+<!-- MAIN APP CONTENT -->
+<main id="appContent" class="app-content">
+   <!-- Pages injected by JS -->
+</main>
+
+<!-- ROBOT AI -->
+<div id="robot" class="robot-fly">
+   <div class="robot-head">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="mouth"></div>
+   </div>
+   <div class="robot-body"></div>
+   <div class="robot-ring"></div>
+</div>
+
+<!-- RADIAL MENU (muncul ketika robot dipencet) -->
+<div id="radialMenu" class="radial-menu hidden">
+   <button data-page="dashboard"><i class="fa-solid fa-house"></i></button>
+   <button data-page="smm"><i class="fa-solid fa-bullhorn"></i></button>
+   <button data-page="topup"><i class="fa-solid fa-wallet"></i></button>
+   <button data-page="market"><i class="fa-solid fa-store"></i></button>
+   <button data-page="chat"><i class="fa-solid fa-comments"></i></button>
+   <button data-page="cs"><i class="fa-solid fa-headset"></i></button>
+   <button data-page="profile"><i class="fa-solid fa-user"></i></button>
+   <button data-page="setting"><i class="fa-solid fa-sliders"></i></button>
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav glass">
+   <a data-page="dashboard" class="nav-btn active"><i class="fa-solid fa-house"></i><span>Home</span></a>
+   <a data-page="smm" class="nav-btn"><i class="fa-solid fa-bullhorn"></i><span>SMM</span></a>
+   <a data-page="topup" class="nav-btn"><i class="fa-solid fa-wallet"></i><span>Topup</span></a>
+   <a data-page="market" class="nav-btn"><i class="fa-solid fa-store"></i><span>Market</span></a>
+   <a data-page="chat" class="nav-btn"><i class="fa-solid fa-comments"></i><span>Chat</span></a>
+   <a data-page="cs" class="nav-btn"><i class="fa-solid fa-headset"></i><span>CS</span></a>
+   <a data-page="profile" class="nav-btn"><i class="fa-solid fa-user"></i><span>Profile</span></a>
+   <a data-page="setting" class="nav-btn"><i class="fa-solid fa-sliders"></i><span>Set</span></a>
+   <div class="nav-indicator"></div>
+</nav>
+
+<script src="js/robot.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/smm.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/market.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
