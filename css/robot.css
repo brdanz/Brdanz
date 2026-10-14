@@ -1,1 +1,177 @@
+/* ===== FLOATING ROBOT AI ===== */
+.robot-fly {
+   position: fixed;
+   bottom: 100px;
+   right: 20px;
+   width: 70px;
+   height: 90px;
+   z-index: 60;
+   cursor: pointer;
+   animation: robotFloat 3s ease-in-out infinite;
+   transition: 0.3s;
+   pointer-events: auto;
+}
+.robot-fly:hover { transform: scale(1.1); }
 
+@keyframes robotFloat {
+   0%,100% { transform: translateY(0) rotate(0deg); }
+   25% { transform: translateY(-8px) rotate(-2deg); }
+   50% { transform: translateY(-14px) rotate(0deg); }
+   75% { transform: translateY(-8px) rotate(2deg); }
+}
+
+/* HEAD */
+.robot-head {
+   width: 56px;
+   height: 56px;
+   margin: 0 auto;
+   background: linear-gradient(135deg, #a855f7, #7c3aed);
+   border-radius: 20px 20px 12px 12px;
+   position: relative;
+   box-shadow:
+      0 0 25px rgba(168,85,247,0.7),
+      inset 0 -8px 12px rgba(0,0,0,0.3),
+      inset 0 4px 8px rgba(255,255,255,0.2);
+   animation: headMove 4s ease-in-out infinite;
+}
+@keyframes headMove {
+   0%,100% { transform: rotate(0deg); }
+   25% { transform: rotate(-6deg); }
+   75% { transform: rotate(6deg); }
+}
+
+.robot-head::before {
+   content:'';
+   position:absolute;
+   top:-6px; left:50%;
+   transform:translateX(-50%);
+   width:3px; height:10px;
+   background:var(--accent);
+   border-radius:3px;
+   box-shadow:0 0 8px var(--accent);
+}
+.robot-head::after {
+   content:'';
+   position:absolute;
+   top:-10px; left:50%;
+   transform:translateX(-50%);
+   width:8px; height:8px;
+   border-radius:50%;
+   background:var(--accent);
+   box-shadow:0 0 15px var(--accent);
+   animation:pulseDot 1.5s infinite;
+}
+@keyframes pulseDot {
+   50% { opacity:0.4; transform:translateX(-50%) scale(0.7); }
+}
+
+/* EYES */
+.robot-head .eye {
+   position:absolute;
+   top:18px;
+   width:10px; height:10px;
+   border-radius:50%;
+   background:#00e5ff;
+   box-shadow:
+      0 0 12px #00e5ff,
+      0 0 25px #00e5ff,
+      inset 0 0 4px #fff;
+   animation:blink 4s infinite;
+}
+.robot-head .eye.left { left:12px; }
+.robot-head .eye.right { right:12px; }
+@keyframes blink {
+   0%,92%,100% { transform:scaleY(1); }
+   95% { transform:scaleY(0.1); }
+}
+
+/* MOUTH */
+.robot-head .mouth {
+   position:absolute;
+   bottom:10px; left:50%;
+   transform:translateX(-50%);
+   width:18px; height:4px;
+   background:#00e5ff;
+   border-radius:3px;
+   box-shadow:0 0 8px #00e5ff;
+   animation:talk 2s infinite;
+}
+@keyframes talk {
+   0%,100% { width:18px; }
+   50% { width:10px; }
+}
+
+/* BODY */
+.robot-body {
+   width:44px;
+   height:26px;
+   margin: -4px auto 0;
+   background: linear-gradient(135deg, #7c3aed, #3b82f6);
+   border-radius: 8px 8px 12px 12px;
+   box-shadow:
+      0 0 20px rgba(168,85,247,0.5),
+      inset 0 -6px 10px rgba(0,0,0,0.4);
+   position:relative;
+}
+.robot-body::before,
+.robot-body::after {
+   content:'';
+   position:absolute;
+   top:6px;
+   width:6px; height:6px;
+   border-radius:50%;
+   background:#00e5ff;
+   box-shadow:0 0 8px #00e5ff;
+}
+.robot-body::before { left:8px; }
+.robot-body::after { right:8px; }
+
+/* RING */
+.robot-ring {
+   position:absolute;
+   bottom:-8px; left:50%;
+   transform:translateX(-50%);
+   width:60px; height:12px;
+   border-radius:50%;
+   background:radial-gradient(ellipse, rgba(168,85,247,0.6), transparent 70%);
+   filter:blur(4px);
+   animation:ringPulse 2s infinite;
+}
+@keyframes ringPulse {
+   0%,100% { transform:translateX(-50%) scale(1); opacity:0.6; }
+   50% { transform:translateX(-50%) scale(1.2); opacity:0.3; }
+}
+
+/* ===== RADIAL MENU ===== */
+.radial-menu {
+   position:fixed;
+   bottom:130px;
+   right:30px;
+   width:0; height:0;
+   z-index:59;
+}
+.radial-menu button {
+   position:absolute;
+   width:52px; height:52px;
+   border-radius:50%;
+   background:var(--glass);
+   backdrop-filter:blur(20px);
+   border:1px solid var(--glass-border);
+   color:#fff;
+   font-size:18px;
+   cursor:pointer;
+   transition: 0.5s cubic-bezier(0.34,1.56,0.64,1);
+   box-shadow:0 0 25px rgba(168,85,247,0.4);
+   opacity:0;
+   transform: translate(0,0) scale(0.3);
+   pointer-events:none;
+}
+.radial-menu.open button {
+   opacity:1;
+   transform: rotate(var(--angle)) translate(90px) rotate(calc(-1 * var(--angle))) scale(1);
+   pointer-events:auto;
+}
+.radial-menu button:hover {
+   background: linear-gradient(135deg, var(--accent), var(--accent-2));
+   transform: rotate(var(--angle)) translate(90px) rotate(calc(-1 * var(--angle))) scale(1.15) !important;
+}
